@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - Nova AI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .test-btn {
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 16px;
+            background: #6366f1;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .test-btn:hover {
+            background: #4f46e5;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Nova AI - Test Sayfası</h1>
+    
+    <button class="test-btn" onclick="testFunction1()">Test 1: Alert</button>
+    <button class="test-btn" onclick="testFunction2()">Test 2: Console</button>
+    <button class="test-btn" onclick="goToMain()">Ana Sayfaya Git</button>
+    
+    <div class="result" id="result">
+        Butonlara tıklayın...
+    </div>
+
+    <script>
+        function testFunction1() {
+            alert('Buton çalışıyor! ✅');
+            document.getElementById('result').innerHTML = '<strong>Test 1 Başarılı!</strong> Alert gösterildi.';
+        }
+
+        function testFunction2() {
+            console.log('Test fonksiyonu çalıştı!');
+            document.getElementById('result').innerHTML = '<strong>Test 2 Başarılı!</strong> Console\'u kontrol edin (F12).';
+        }
+
+        function goToMain() {
+            window.location.href = 'index.html';
+        }
+
+        console.log('Test sayfası yüklendi!');
+    </script>
+</body>
+</html>
