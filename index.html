@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova AI - Akıllı Eğitim Platformu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- LANDING PAGE -->
+        <section id="landing-page" class="page active">
+            <div class="container">
+                <div class="logo">
+                    <h1>🌟 Nova AI</h1>
+                </div>
+                <div class="hero">
+                    <h2>Öğrenmeyi Eğlenceli Hale Getir!</h2>
+                    <p>Nova AI, seni ödevlerinde, sınavlarında ve çalışma düzeninde destekleyen akıllı arkadaşın.</p>
+                    <p>Öğretmenlerin de öğrencilerini kolayca takip edebileceği bir platform!</p>
+                </div>
+                
+                <div class="video-section">
+                    <div class="video-placeholder" id="video-thumb">
+                        <div class="play-icon">▶</div>
+                        <p>Tanıtım Videosunu İzle</p>
+                    </div>
+                    <button class="btn-primary video-btn" id="open-video-btn">Videoyu İzle</button>
+                </div>
+
+                <button class="btn-large btn-primary" id="continue-btn">Devam Et</button>
+            </div>
+        </section>
+
+        <!-- REGISTER SELECTION -->
+        <section id="register-selection" class="page">
+            <div class="container">
+                <h2>Kim Olarak Katılıyorsun?</h2>
+                <div class="selection-cards">
+                    <div class="selection-card" id="select-student">
+                        <div class="icon">👨‍🎓</div>
+                        <h3>Öğrenciyim</h3>
+                        <p>Derslerime çalışmak ve gelişmek istiyorum</p>
+                    </div>
+                    <div class="selection-card" id="select-teacher">
+                        <div class="icon">👩‍🏫</div>
+                        <h3>Öğretmenim</h3>
+                        <p>Öğrencilerimi takip etmek istiyorum</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STUDENT REGISTER -->
+        <section id="student-register" class="page">
+            <div class="container">
+                <h2>Öğrenci Kayıt</h2>
+                <form id="student-form">
+                    <div class="form-group">
+                        <label>Adın Nedir? <span class="required">*</span></label>
+                        <input type="text" id="student-name" required placeholder="Örn: Ahmet">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Hangi Sınıftasın? <span class="required">*</span></label>
+                        <select id="student-grade" required>
+                            <option value="">Seç</option>
+                            <option value="5">5. Sınıf</option>
+                            <option value="6">6. Sınıf</option>
+                            <option value="7">7. Sınıf</option>
+                            <option value="8">8. Sınıf</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Avatarını Seç <span class="required">*</span></label>
+                        <div class="avatar-grid">
+                            <div class="avatar-option" data-avatar="1">
+                                <div class="avatar-img">😊</div>
+                            </div>
+                            <div class="avatar-option" data-avatar="2">
+                                <div class="avatar-img">🎯</div>
+                            </div>
+                            <div class="avatar-option" data-avatar="3">
+                                <div class="avatar-img">🚀</div>
+                            </div>
+                            <div class="avatar-option" data-avatar="4">
+                                <div class="avatar-img">⭐</div>
+                            </div>
+                            <div class="avatar-option" data-avatar="5">
+                                <div class="avatar-img">🎨</div>
+                            </div>
+                            <div class="avatar-option" data-avatar="6">
+                                <div class="avatar-img">🎵</div>
+                            </div>
+                        </div>
+                        <input type="hidden" id="selected-avatar" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Öğretmeninden Aldığın Sınıf Kodu (Varsa)</label>
+                        <input type="text" id="class-code" placeholder="Örn: ABC123">
+                    </div>
+
+                    <button type="submit" class="btn-large btn-primary">Kayıt Ol</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- TEACHER REGISTER -->
+        <section id="teacher-register" class="page">
+            <div class="container">
+                <h2>Öğretmen Kayıt</h2>
+                <form id="teacher-form">
+                    <div class="form-group">
+                        <label>Adınız Soyadınız <span class="required">*</span></label>
+                        <input type="text" id="teacher-name" required placeholder="Örn: Ayşe Yılmaz">
+                    </div>
+
+                    <div class="form-group">
+                        <label>E-posta Adresiniz <span class="required">*</span></label>
+                        <input type="email" id="teacher-email" required placeholder="ornek@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Branşınız <span class="required">*</span></label>
+                        <select id="teacher-branch" required>
+                            <option value="">Seç</option>
+                            <option value="matematik">Matematik</option>
+                            <option value="fen">Fen Bilimleri</option>
+                            <option value="turkce">Türkçe</option>
+                            <option value="sosyal">Sosyal Bilgiler</option>
+                            <option value="diger">Diğer</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-large btn-primary">Kayıt Ol</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- STUDY SCHEDULE SETUP -->
+        <section id="schedule-setup" class="page">
+            <div class="container">
+                <h2>Ders Programını Oluştur</h2>
+                <p style="text-align:center; color: #6b7280; margin-bottom: 30px;">Hangi derslere çalışmak istiyorsun ve günde kaç saat ayırabilirsin?</p>
+                
+                <form id="schedule-form">
+                    <div class="form-group">
+                        <label>Çalışmak İstediğin Dersleri Seç <span class="required">*</span></label>
+                        <div class="subject-checkboxes">
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="subjects" value="matematik" checked>
+                                <span>Matematik</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="subjects" value="fen" checked>
+                                <span>Fen Bilimleri</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="subjects" value="turkce" checked>
+                                <span>Türkçe</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="subjects" value="sosyal" checked>
+                                <span>Sosyal Bilgiler</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="subjects" value="ingilizce">
+                                <span>İngilizce</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="subjects" value="din">
+                                <span>Din Kültürü</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Günlük Çalışma Hedefin <span class="required">*</span></label>
+                        <select id="daily-study-hours" required>
+                            <option value="">Seç</option>
+                            <option value="1">1 Saat</option>
+                            <option value="2">2 Saat</option>
+                            <option value="3">3 Saat</option>
+                            <option value="4">4 Saat</option>
+                            <option value="5">5 Saat</option>
+                            <option value="6">6+ Saat</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Hangi Saatlerde Çalışmayı Tercih Edersin?</label>
+                        <select id="study-time-preference">
+                            <option value="morning">Sabah (06:00 - 12:00)</option>
+                            <option value="afternoon" selected>Öğleden Sonra (12:00 - 18:00)</option>
+                            <option value="evening">Akşam (18:00 - 22:00)</option>
+                            <option value="mixed">Karışık</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-large btn-primary">Programı Oluştur</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- ONBOARDING -->
+        <section id="onboarding" class="page">
+            <div class="container">
+                <div class="onboarding-content">
+                    <div class="slide active" data-slide="1">
+                        <div class="slide-icon">📚</div>
+                        <h2>Hoş Geldin!</h2>
+                        <p>Nova AI ile öğrenme yolculuğuna başlıyorsun. Derslerine düzenli çalışmanı sağlayacak ve seni her zaman destekleyecek bir arkadaşın olacak!</p>
+                    </div>
+                    <div class="slide" data-slide="2">
+                        <div class="slide-icon">⏰</div>
+                        <h2>Çalışma Zamanını Takip Et</h2>
+                        <p>Her gün ne kadar çalıştığını görebilir, hedeflerine ulaşmanı izleyebilirsin. Ne kadar çalıştığını görmek seni daha çok motive edecek!</p>
+                    </div>
+                    <div class="slide" data-slide="3">
+                        <div class="slide-icon">📊</div>
+                        <h2>Denemelerini Kaydet</h2>
+                        <p>Deneme sınavlarındaki netlerini gir, gelişimini grafiklerle gör. Her deneme seni LGS'ye bir adım daha yaklaştırıyor!</p>
+                    </div>
+                    <div class="slide" data-slide="4">
+                        <div class="slide-icon">🎯</div>
+                        <h2>Kişisel Öneriler Al</h2>
+                        <p>Sana özel video dersleri, oyunlar ve içeriklerle öğrenmen daha eğlenceli olacak. Hazır mısın?</p>
+                    </div>
+                </div>
+                <div class="onboarding-dots">
+                    <span class="dot active" data-slide-btn="1"></span>
+                    <span class="dot" data-slide-btn="2"></span>
+                    <span class="dot" data-slide-btn="3"></span>
+                    <span class="dot" data-slide-btn="4"></span>
+                </div>
+                <div class="onboarding-actions">
+                    <button class="btn-secondary" id="prev-btn" style="display:none;">Geri</button>
+                    <button class="btn-primary" id="next-btn">İleri</button>
+                    <button class="btn-large btn-primary" id="start-btn" style="display:none;">Haydi Başlayalım</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STUDENT DASHBOARD -->
+        <section id="student-dashboard" class="page">
+            <div class="container">
+                <div class="header">
+                    <div class="welcome">
+                        <span class="avatar-display" id="user-avatar"></span>
+                        <h2>Merhaba, <span id="user-name-display"></span>!</h2>
+                    </div>
+                    <button class="btn-small" id="logout-btn">Çıkış</button>
+                </div>
+
+                <!-- MOOD SELECTION -->
+                <div class="card" id="mood-section">
+                    <h3>Bugün Nasıl Hissediyorsun?</h3>
+                    <div class="mood-grid">
+                        <div class="mood-option" data-mood="happy">
+                            <div class="mood-icon">😊</div>
+                            <p>Mutlu</p>
+                        </div>
+                        <div class="mood-option" data-mood="normal">
+                            <div class="mood-icon">😐</div>
+                            <p>Normal</p>
+                        </div>
+                        <div class="mood-option" data-mood="tired">
+                            <div class="mood-icon">😴</div>
+                            <p>Yorgun</p>
+                        </div>
+                        <div class="mood-option" data-mood="stressed">
+                            <div class="mood-icon">😰</div>
+                            <p>Stresli</p>
+                        </div>
+                    </div>
+                    <div class="mood-message" id="mood-message"></div>
+                </div>
+
+                <!-- NAVIGATION TABS -->
+                <div class="tabs">
+                    <button class="tab active" data-tab="study">Çalışma</button>
+                    <button class="tab" data-tab="exam">Denemeler</button>
+                    <button class="tab" data-tab="content">İçerikler</button>
+                    <button class="tab" data-tab="stats">İstatistikler</button>
+                </div>
+
+                <!-- STUDY TAB -->
+                <div class="tab-content active" id="study-tab">
+                    <div class="card">
+                        <h3>Bugünün Çalışma Programı</h3>
+                        <div id="daily-schedule"></div>
+                        <button class="btn-secondary" id="edit-schedule-btn" style="margin-top: 15px;">Programı Düzenle</button>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Çalışma Zamanı</h3>
+                        <div class="timer-display" id="timer-display">00:00:00</div>
+                        <div class="timer-controls">
+                            <button class="btn-primary" id="start-timer-btn">Başlat</button>
+                            <button class="btn-secondary" id="pause-timer-btn" style="display:none;">Duraklat</button>
+                            <button class="btn-danger" id="stop-timer-btn" style="display:none;">Bitir</button>
+                        </div>
+                        <div class="focus-selection" id="focus-selection" style="display:none;">
+                            <h4>Bu çalışmada nasıl odaklandın?</h4>
+                            <div class="focus-options">
+                                <button class="btn-focus" data-focus="low">Az Odaklandım</button>
+                                <button class="btn-focus" data-focus="medium">Normal Odaklandım</button>
+                                <button class="btn-focus" data-focus="high">Çok Odaklandım</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EXAM TAB -->
+                <div class="tab-content" id="exam-tab">
+                    <div class="card">
+                        <h3>Deneme Ekle</h3>
+                        <form id="exam-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Türkçe Doğru</label>
+                                    <input type="number" id="turkce-dogru" min="0" max="20" value="0">
+                                </div>
+                                <div class="form-group">
+                                    <label>Türkçe Yanlış</label>
+                                    <input type="number" id="turkce-yanlis" min="0" max="20" value="0">
+                                </div>
+                                <div class="form-group">
+                                    <label>Türkçe Boş</label>
+                                    <input type="number" id="turkce-bos" min="0" max="20" value="0">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Matematik Doğru</label>
+                                    <input type="number" id="matematik-dogru" min="0" max="20" value="0">
+                                </div>
+                                <div class="form-group">
+                                    <label>Matematik Yanlış</label>
+                                    <input type="number" id="matematik-yanlis" min="0" max="20" value="0">
+                                </div>
+                                <div class="form-group">
+                                    <label>Matematik Boş</label>
+                                    <input type="number" id="matematik-bos" min="0" max="20" value="0">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Fen Doğru</label>
+                                    <input type="number" id="fen-dogru" min="0" max="20" value="0">
+                                </div>
+                                <div class="form-group">
+                                    <label>Fen Yanlış</label>
+                                    <input type="number" id="fen-yanlis" min="0" max="20" value="0">
+                                </div>
+                                <div class="form-group">
+                                    <label>Fen Boş</label>
+                                    <input type="number" id="fen-bos" min="0" max="20" value="0">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Sosyal Doğru</label>
+                                    <input type="number" id="sosyal-dogru" min="0" max="20" value="0">
+                                </div>
+                                <div class="form-group">
+                                    <label>Sosyal Yanlış</label>
+                                    <input type="number" id="sosyal-yanlis" min="0" max="20" value="0">
+                                </div>
+                                <div class="form-group">
+                                    <label>Sosyal Boş</label>
+                                    <input type="number" id="sosyal-bos" min="0" max="20" value="0">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn-primary">Deneme Kaydet</button>
+                        </form>
+                    </div>
+                    <div class="card">
+                        <h3>Deneme Geçmişi</h3>
+                        <div id="exam-history"></div>
+                        <canvas id="exam-chart"></canvas>
+                    </div>
+                </div>
+
+                <!-- CONTENT TAB -->
+                <div class="tab-content" id="content-tab">
+                    <div class="card">
+                        <h3>Sana Özel İçerikler</h3>
+                        <div class="content-categories">
+                            <button class="btn-category active" data-category="all">Hepsi</button>
+                            <button class="btn-category" data-category="matematik">Matematik</button>
+                            <button class="btn-category" data-category="fen">Fen</button>
+                            <button class="btn-category" data-category="turkce">Türkçe</button>
+                            <button class="btn-category" data-category="motivasyon">Motivasyon</button>
+                            <button class="btn-category" data-category="oyun">Oyunlar</button>
+                        </div>
+                        <div id="content-list"></div>
+                    </div>
+                </div>
+
+                <!-- STATS TAB -->
+                <div class="tab-content" id="stats-tab">
+                    <div class="card">
+                        <h3>İstatistiklerim</h3>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-icon">⏱️</div>
+                                <div class="stat-value" id="total-study-time">0 dk</div>
+                                <div class="stat-label">Toplam Çalışma</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">🔥</div>
+                                <div class="stat-value" id="streak-days">0 gün</div>
+                                <div class="stat-label">Üst Üste Çalışma</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">🎯</div>
+                                <div class="stat-value" id="avg-focus">-</div>
+                                <div class="stat-label">Ortalama Odak</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">📊</div>
+                                <div class="stat-value" id="avg-net">0.0</div>
+                                <div class="stat-label">Ortalama Net</div>
+                            </div>
+                        </div>
+                        <canvas id="stats-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TEACHER DASHBOARD -->
+        <section id="teacher-dashboard" class="page">
+            <div class="container">
+                <div class="header">
+                    <h2>Öğretmen Paneli - <span id="teacher-name-display"></span></h2>
+                    <button class="btn-small" id="teacher-logout-btn">Çıkış</button>
+                </div>
+
+                <div class="card">
+                    <h3>Sınıflarım</h3>
+                    <button class="btn-primary" id="create-class-btn">Yeni Sınıf Oluştur</button>
+                    <div id="class-list"></div>
+                </div>
+
+                <div class="card" id="class-details" style="display:none;">
+                    <h3>Sınıf Detayları: <span id="selected-class-name"></span></h3>
+                    <div class="class-code-display">
+                        <strong>Sınıf Kodu:</strong> <span id="class-code-display"></span>
+                        <button class="btn-small" id="copy-code-btn">Kopyala</button>
+                    </div>
+                    <h4>Öğrenciler</h4>
+                    <div id="students-list"></div>
+                    <canvas id="teacher-chart"></canvas>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
